@@ -29,6 +29,3 @@ This repository is actively maintained and will be updated as I continue learnin
 
 While this repository is primarily for my personal use, any and all suggestions for improvements or additions are welcome. Feel free to open an issue or submit a pull request.
 
----
-
-Remember, a `README.md` file is your opportunity to guide users through your project, so feel free to adjust and expand upon the template as needed!
