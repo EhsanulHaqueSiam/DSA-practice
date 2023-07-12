@@ -8,7 +8,7 @@ The repository is organized into major DSA categories, each with relevant subcat
 
 * **[Arrays](./Arrays/README.md)**: This section contains exercises and code related to 1D and 2D arrays, and Array ADTs.
 * **[Algorithms](./Algorithms/README.md)**: This section encompasses various algorithm types including sorting algorithms, graph algorithms, backtracking algorithms, and dynamic programming.
-* **[Recursion](./Recursion/README.md)**: Here you can find exercises related to different types of recursion, such as head and tail recursion and recursion using stacks.
+* **[Recursion](./Algorithms/Recursion/README.md)**: Here you can find exercises related to different types of recursion, such as head and tail recursion and recursion using stacks.
 * **[Linked Lists](./Linked-Lists/README.md)**: This directory covers different types of linked lists, including singly, doubly, and circular linked lists.
 * **[Queue](./Queue/README.md)**: This section covers different types of queues, including simple and circular queues.
 * **[Trees](./Trees/README.md)**: This section includes various types of trees and tree-related algorithms, such as Binary Search Trees, AVL trees, Red-Black Trees, and Tries.
