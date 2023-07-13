@@ -4,63 +4,81 @@
 
 using namespace std;
 
-// Function to print the constructed MST
+// Function to print the constructed Minimum Spanning Tree (MST)
 void printMST(int parent[], int graph[V][V]) {
     cout << "Edge \tWeight\n";
+    // Loop through all the vertices starting from 1
+    // (vertex 0 doesn't have a parent in the MST)
     for (int i = 1; i < V; i++)
-        // Loop through all the vertices starting from 1 (vertex 0 doesn't have a parent)
-        // Print parent (source vertex) - i (destination vertex) and the weight of the edge
+        // Print each edge (from parent[i] to i) and its weight (graph[i][parent[i]])
         cout << parent[i] << " - " << i << " \t" << graph[i][parent[i]] << "\n";
 }
 
-// Function to find the vertex with minimum key value
+// Function to find the vertex with minimum key value, from the set of vertices
+// not yet included in MST
 int minKey(int key[], bool mstSet[]) {
-    // Initialize minimum value and its index
+    // Initialize min value and its index
     int min = INF, min_index;
 
     for (int v = 0; v < V; v++)
-        // If the vertex has not been included in the MST (mstSet[v] is false)
-        // and its key value is less than the current minimum, update the minimum
+        // If v is not in mstSet, and key[v] is smaller than current min,
+        // update min and min_index
         if (mstSet[v] == false && key[v] < min)
             min = key[v], min_index = v;
 
     return min_index;
 }
 
+// Function to calculate total minimum cost of the MST
+int calculateTotalMinCost(int parent[], int graph[V][V]) {
+    int totalMinCost = 0;
+    // Loop through all the vertices starting from 1
+    // (vertex 0 doesn't have a parent in the MST)
+    for (int i = 1; i < V; i++)
+        // Add the weight of each edge in the MST to the total cost
+        totalMinCost += graph[i][parent[i]];
+    return totalMinCost;
+}
+
+// Function to construct and print MST for a graph represented using adjacency matrix representation
 void primMST(int graph[V][V]) {
-    // Arrays to store the MST (as parent array), the key values, and whether a vertex is in the MST
+    // Create arrays to store the parent vertices and key values of each vertex,
+    // and a boolean array to track which vertices are in the MST
     int parent[V], key[V];
     bool mstSet[V];
 
-    for (int i = 0; i < V; i++)
-        // Initialize all keys as infinite and none of the vertices are in the MST
+    for (int i = 0; i < V; i++) {
+        // Initialize all keys as infinite and mstSet[] as false
         key[i] = INF, mstSet[i] = false;
+    }
 
-    // Always include first 1st vertex in MST.
+    // Always include first vertex in MST. Make key 0 so this vertex is picked first.
     key[0] = 0;
     parent[0] = -1; // First node is always root of MST
 
+    // The MST will have V vertices
     for (int count = 0; count < V - 1; count++) {
-        // Pick the minimum key vertex from the set of vertices
-        // not yet included in MST
+        // Pick the vertex with the minimum key value, that's not yet included in the MST
         int u = minKey(key, mstSet);
 
         // Add the picked vertex to the MST set
         mstSet[u] = true;
 
-        // Update key value and parent index of the adjacent vertices of
-        // the picked vertex. Consider only those vertices which are not yet
-        // included in MST
+        // Update key value and parent index of the adjacent vertices of the picked vertex.
+        // Consider only those vertices which are not yet included in MST
         for (int v = 0; v < V; v++)
-            // graph[u][v] is non zero only for adjacent vertices of m
-            // mstSet[v] is false for vertices not yet included in MST
-            // Update the key only if graph[u][v] is smaller than key[v]
+            // Update the key only if graph[u][v] is non-zero (i.e., an edge exists), 
+            // mstSet[v] is false (v is not in MST), 
+            // and weight of the edge is smaller than key[v]
             if (graph[u][v] && mstSet[v] == false && graph[u][v] < key[v])
                 parent[v] = u, key[v] = graph[u][v];
     }
 
     // print the constructed MST
     printMST(parent, graph);
+
+    // print the total minimum cost of the MST
+    cout << "Total minimum cost: " << calculateTotalMinCost(parent, graph) << "\n";
 }
 
 int main() {
@@ -101,5 +119,6 @@ Edge 	Weight
 1 - 2 	3
 1 - 3 	8
 2 - 4 	7
+Total minimum cost: 16
 
 This represents the edges of the minimum spanning tree and their corresponding weights. For instance, the edge between node 0 and node 1 has a weight of 2, and so on. */

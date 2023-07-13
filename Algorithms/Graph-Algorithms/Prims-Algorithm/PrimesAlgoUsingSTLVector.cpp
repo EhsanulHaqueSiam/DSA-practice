@@ -3,52 +3,78 @@ using namespace std;
 
 #define INF 1000000 // Define a large value that will be used for initial key values and to find minimum value.
 
-// Function to print the constructed Minimum Spanning Tree (MST).
-void printMST(int V, vector<int> parent, vector<vector<int>> graph) {
-    // V is the number of vertices, parent vector stores the MST, and graph holds the weights.
+// Define an Edge structure to hold source and destination vertices and the weight between them.
+struct Edge {
+    int source;
+    int destination;
+    int weight;
+};
+
+// Function to convert adjacency matrix into a list of Edge structures.
+vector<Edge> convertToEdges(int V, vector<vector<int>> graph) {
+    vector<Edge> edges;
+
+    // Traverse the adjacency matrix.
+    for (int i = 0; i < V; i++) {
+        for (int j = 0; j < V; j++) {
+            if (graph[i][j] != 0) {
+                edges.push_back(Edge{i, j, graph[i][j]}); // Create an Edge structure for each non-zero cell.
+            }
+        }
+    }
+    return edges;
+}
+
+// Function to print the constructed Minimum Spanning Tree (MST) and return the total minimum cost.
+int printMST(int V, vector<int> parent, vector<vector<int>> graph) {
     cout << "Edge \tWeight\n";
-    for (int i = 1; i < V; i++) // We start from 1 because the first vertex (0) doesn't have a parent.
-        cout << parent[i] << " - " << i << " \t" << graph[i][parent[i]] << "\n"; // Print the edge and its weight.
+    int totalMinCost = 0;
+    for (int i = 1; i < V; i++) {
+        cout << parent[i] << " - " << i << " \t" << graph[i][parent[i]] << "\n";
+        totalMinCost += graph[i][parent[i]]; // Add the weight of the current edge to the total minimum cost.
+    }
+    return totalMinCost; // Return the total minimum cost.
 }
 
 // Prim's Algorithm function.
 void primMST(int V, vector<vector<int>> graph) {
-    // V is the number of vertices and graph is the adjacency matrix representation of the graph.
-    vector<int> key(V, INF);  // Key values used to pick minimum weight edge in cut.
-    vector<int> parent(V, -1);  // Stores constructed MST, with parent[i] representing the parent of vertex i in the MST.
-    vector<bool> inMST(V, false);  // To keep track of vertices included in MST.
+    vector<int> key(V, INF); // Initialize key values for all vertices as infinity.
+    vector<int> parent(V, -1); // Initialize parent array as -1 for all vertices.
+    vector<bool> inMST(V, false); // Initialize MST set as empty for all vertices.
 
-    key[0] = 0; // Always include first vertex in MST. Setting its key value to 0 ensures that vertex 0 is picked first.
+    key[0] = 0; // Start with the first vertex, so its key is set to 0.
 
-    // The MST will have V vertices, therefore, the following process will be iterated V times.
+    // Iterate V-1 times to build the MST (V-1 because MST has V-1 edges).
     for (int count = 0; count < V; count++) {
-        // Pick the vertex which is not in MST and has the smallest key.
-        int min = INF, u;  // u is the index of the vertex with the smallest key.
+        int min = INF, u; // Variables to store the minimum key value and corresponding vertex.
+
+        // Find the vertex with the minimum key value that is not yet included in MST.
         for (int v = 0; v < V; v++)
-            if (inMST[v] == false && key[v] < min) // If v is not in MST and key[v] is smaller than current minimum, update min and u.
+            if (inMST[v] == false && key[v] < min)
                 min = key[v], u = v;
 
-        // Add the picked vertex to the MST set.
-        inMST[u] = true;
+        inMST[u] = true; // Add the selected vertex to the MST set.
 
-        // For every vertex v adjacent to u.
+        // Update the key value and parent index of the adjacent vertices of the selected vertex.
         for (int v = 0; v < V; v++)
-            // If v is not in MST and weight of u-v is smaller than key value of v, then update key value and parent of v.
-            if (graph[u][v] && inMST[v] == false && graph[u][v] < key[v])
-                parent[v] = u, key[v] = graph[u][v];
+            if (graph[u][v] && inMST[v] == false && graph[u][v] < key[v]) {
+                parent[v] = u; // Update the parent of vertex v.
+                key[v] = graph[u][v]; // Update the key value of vertex v to the weight of the edge.
+            }
     }
 
-    // Print the constructed MST.
-    printMST(V, parent, graph);
+    // Calculate total minimum cost and print the constructed MST.
+    int totalMinCost = printMST(V, parent, graph);
+    cout << "Total minimum cost: " << totalMinCost << "\n";
 }
 
 int main() {
     /* Let us create the following graph
         2    3
     (0)--(1)--(2)
-    |   / \   |
+     |   / \   |
     6| 8/   \5 |7
-    | /     \ |
+     | /     \ |
     (3)-------(4)
             9          */
     int V = 5; // Number of vertices in the graph.
@@ -58,6 +84,14 @@ int main() {
                                  {6, 8, 0, 0, 9},
                                  {0, 5, 7, 9, 0},
                                 }; // Representation of the graph as an adjacency matrix.
+
+    vector<Edge> edges = convertToEdges(V, graph); // Convert adjacency matrix into edge list.
+
+    // Display the converted edges.
+    cout << "Converted Edges:\n";
+    for (const Edge& edge : edges) {
+        cout << edge.source << " - " << edge.destination << " \t" << edge.weight << "\n";
+    }
 
     // Execute Prim's Algorithm on the graph.
     primMST(V, graph);
@@ -78,10 +112,26 @@ int main() {
 
 Here's the output of the code above:
 
-Edge 	Weight
-0 - 1 	2
-1 - 2 	3
-1 - 3 	8
-2 - 4 	7
+Converted Edges:
+0 - 1   2       
+0 - 3   6       
+1 - 0   2       
+1 - 2   3       
+1 - 3   8       
+1 - 4   5       
+2 - 1   3       
+2 - 4   7       
+3 - 0   6       
+3 - 1   8       
+3 - 4   9
+4 - 1   5
+4 - 2   7
+4 - 3   9
+Edge    Weight
+0 - 1   2
+1 - 2   3
+0 - 3   6
+1 - 4   5
+Total minimum cost: 16
 
 This represents the edges of the minimum spanning tree and their corresponding weights. For instance, the edge between node 0 and node 1 has a weight of 2, and so on. */
