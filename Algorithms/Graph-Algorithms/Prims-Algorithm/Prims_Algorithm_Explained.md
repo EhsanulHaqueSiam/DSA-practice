@@ -6,6 +6,7 @@ Prim's algorithm, named after its creator Robert C. Prim, is an efficient algori
 
 - [Prim's Algorithm: A Deep Dive](#prims-algorithm-a-deep-dive)
   - [How Prim's Algorithm Works](#how-prims-algorithm-works)
+  - [Understanding Prim's Algorithm Through a GIF](#understanding-prims-algorithm-through-a-gif)
   - [Detailed Explanation of Prim's Algorithm](#detailed-explanation-of-prims-algorithm)
   - [Code Breakdown](#code-breakdown)
   - [Optimizing Prim's Algorithm](#optimizing-prims-algorithm)
@@ -24,6 +25,24 @@ Prim's algorithm operates by continuously adding the nearest unvisited vertex to
 2. **Growing the Tree:** Out of the edges that connect the vertices already in the tree to vertices outside the tree, select the edge with the smallest weight and add it to the tree.
 
 3. **Repeating the Process:** Repeat step 2 until all vertices are included in the tree.
+
+## [Understanding Prim's Algorithm Through a GIF](#table-of-contents)
+
+![Prim's Algorithm](https://upload.wikimedia.org/wikipedia/en/9/96/Prim-animation.gif)
+
+Prim's algorithm is a greedy algorithm used to find the minimum spanning tree for a weighted, undirected graph. This means it constructs a tree that includes every vertex, where the total weight of all the edges in the tree is minimized.
+
+The provided GIF is an excellent visual representation of how Prim's algorithm works. The algorithm starts from a single node, colored red, and grows the spanning tree by adding the smallest edge that connects the tree to a node not yet in the tree. This process is repeated until all nodes are included in the tree, resulting in a tree with the minimum total edge weight possible.
+
+The GIF uses different colors to represent different states of nodes and edges:
+
+- **Red**: The starting node.
+- **Blue**: Nodes that have been added to the tree.
+- **Green**: The current edge being considered.
+- **Yellow**: Nodes that are connected to the tree but not yet included in it.
+- **White**: Nodes that are not yet connected to the tree.
+
+The numbers on the edges represent their weights. The algorithm always picks the edge with the smallest weight that doesn't form a cycle. Through this process, Prim's algorithm ensures the creation of a minimum spanning tree for a given graph.
 
 ## [Detailed Explanation of Prim's Algorithm](#table-of-contents)
 
