@@ -78,28 +78,36 @@ Here are the steps:
 
    Sorted edges: 7-6, 8-2, 6-5, 0-1, 2-5, 8-6, 2-3, 7-8, 0-7, 1-2, 3-4
 
-2. **Step 2**: Pick edge 7-6. No cycle is formed, include it. 
+2. **Step 2**: Pick edge 7-6. No cycle is formed, include it.
+   
 ![Step 2](https://media.geeksforgeeks.org/wp-content/uploads/20230306132726/img1drawio.png)
 
 3. **Step 3**: Pick edge 8-2. No cycle is formed, include it. 
+
 ![Step 3](https://media.geeksforgeeks.org/wp-content/uploads/20230306132819/img2drawio.png)
 
 4. **Step 4**: Pick edge 6-5. No cycle is formed, include it. 
+
 ![Step 4](https://media.geeksforgeeks.org/wp-content/uploads/20230306132901/img3drawio.png)
 
 5. **Step 5**: Pick edge 0-1. No cycle is formed, include it.
+
 ![Step 5](https://media.geeksforgeeks.org/wp-content/uploads/20230306132939/img4drawio.png)
 
 6. **Step 6**: Pick edge 2-5. No cycle is formed, include it.
+
 ![Step 6](https://media.geeksforgeeks.org/wp-content/uploads/20230306133028/img5drawio.png)
 
 7. **Step 7**: Pick edge 8-6. Since including this edge results in the cycle, discard it. Pick edge 2-3: No cycle is formed, include it.
+
 ![Step 7](https://media.geeksforgeeks.org/wp-content/uploads/20230306133247/img6drawio.png)
 
 8. **Step 8**: Pick edge 7-8. Since including this edge results in the cycle, discard it. Pick edge 0-7. No cycle is formed, include it.
+
 ![Step 8](https://media.geeksforgeeks.org/wp-content/uploads/20230306133618/img7drawio.png)
 
 9. **Step 9**: Pick edge 1-2. Since including this edge results in the cycle, discard it. Pick edge 3-4. No cycle is formed, include it.
+
 ![Step 9](https://media.geeksforgeeks.org/wp-content/uploads/20230306133406/img8drawio.png)
 
 At this point, all vertices are included in the MST, so the algorithm stops.
