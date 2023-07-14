@@ -81,7 +81,7 @@ Now, let's move on to the fourth GIF.
 
 ![BFS-gif](https://s3.stackabuse.com/media/articles/bfs-gif.gif)
 
-The fourth GIF, sourced from [Stack Abuse](s3.stackabuse.com), provides a unique perspective on the Breadth-First Search (BFS) algorithm by showing the algorithm's progress in real-time.
+The fourth GIF, sourced from [Stack Abuse](stackabuse.com), provides a unique perspective on the Breadth-First Search (BFS) algorithm by showing the algorithm's progress in real-time.
 
 In this GIF, the BFS algorithm starts at the top-left corner of a grid. The grid can be thought of as a graph where each cell is a node and each node is connected to its adjacent nodes. The algorithm then explores all the neighboring nodes at the current depth level before moving on to nodes at the next depth level. This is represented in the GIF by the cells changing color as they are explored.
 
@@ -93,7 +93,7 @@ Finally, let's move on to the fifth GIF.
 
 ![BFS-gif](https://miro.medium.com/v2/resize:fit:1280/1*GT9oSo0agIeIj6nTg3jFEA.gif)
 
-The fifth GIF, sourced from Medium, offers a more abstract representation of the Breadth-First Search (BFS) algorithm. This GIF uses a graph structure, with nodes represented as circles and edges as lines connecting them.
+The fifth GIF, sourced from [Medium](medium.com), offers a more abstract representation of the Breadth-First Search (BFS) algorithm. This GIF uses a graph structure, with nodes represented as circles and edges as lines connecting them.
 
 The BFS algorithm starts at a designated root node and explores the neighbor nodes at the current depth level before moving on to nodes at the next depth level. This is represented in the GIF by the nodes changing color as they are explored, with the order of exploration shown by the numbers inside the nodes.
 
