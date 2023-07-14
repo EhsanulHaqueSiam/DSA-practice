@@ -91,7 +91,7 @@ This GIF does a great job of showing how BFS can be used in pathfinding algorith
 
 Finally, let's move on to the fifth GIF.
 
-![](https://miro.medium.com/v2/resize:fit:1280/1*GT9oSo0agIeIj6nTg3jFEA.gif)
+![BFS-gif](https://miro.medium.com/v2/resize:fit:1280/1*GT9oSo0agIeIj6nTg3jFEA.gif)
 
 The fifth GIF, sourced from Medium, offers a more abstract representation of the Breadth-First Search (BFS) algorithm. This GIF uses a graph structure, with nodes represented as circles and edges as lines connecting them.
 
