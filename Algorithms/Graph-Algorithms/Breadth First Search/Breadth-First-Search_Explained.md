@@ -280,6 +280,30 @@ The provided BFS implementation is already quite efficient. It has a time comple
 
 In addition, if the graph is a tree, we can further optimize the BFS algorithm by eliminating the `visited` array. Since there are no cycles in a tree, we don't need to worry about visiting a node more than once.
 
+## Breadth-First Search (BFS) vs Depth-First Search (DFS)
+
+Breadth-First Search (BFS) and Depth-First Search (DFS) are two fundamental algorithms used for searching a graph. They have different strategies for how they traverse the graph, which leads to different performance characteristics and use cases. Here's a detailed comparison of the two:
+
+1. **Data Structure:** BFS uses a queue data structure which follows the FIFO (First-In-First-Out) principle, meaning that nodes are explored in the order they are discovered. On the other hand, DFS uses a stack data structure which follows the LIFO (Last-In-First-Out) principle, meaning that the most recently discovered node that has not been fully explored will be explored first.
+
+2. **Traversal Order:** BFS visits all the nodes of a level before going to the next level. This property of BFS makes it suitable for finding the shortest path in unweighted graphs. DFS, on the other hand, will go as deep into the graph as possible until it reaches a node with no unvisited neighbors, then it backtracks.
+
+3. **Memory Space:** BFS keeps track of all the nodes at the current level and the next level, which can take up a lot of space if the maximum width of the tree is large. DFS keeps track of all the nodes along the path from the root (or start node) to the current node, which can take up a lot of space if the maximum depth of the tree (or graph) is large. However, in the worst-case scenario, DFS may still require less memory than BFS.
+
+4. **Applications:** BFS is used in a variety of applications, such as finding the shortest path in unweighted graphs, testing a graph for bipartiteness, or finding all connected components in a graph. DFS is used in applications like topological sorting, finding connected components in a graph, or solving puzzles like mazes.
+
+5. **Optimality:** BFS is generally considered optimal when the goal is to find the shortest path, as it explores all paths in increasing order of length. DFS is not optimal in this regard, as it might explore a longer path while a shorter one was available.
+
+6. **Speed:** DFS is generally faster than BFS, as it quickly dives deep into a graph without the need to explore all neighbors of a node. However, the speed of these algorithms also greatly depends on the structure of the graph and the location of the goal node.
+
+7. **Backtracking:** In DFS, backtracking is an inherent feature of the algorithm - it's the mechanism that allows the algorithm to explore new paths after reaching a dead end. In BFS, there's no concept of backtracking - once a node has been explored, the algorithm simply moves on to the next node.
+
+8. **Loop Trapping:** In DFS, there's a risk of getting trapped in an infinite loop if the graph contains cycles and there's no mechanism to mark nodes as visited. BFS doesn't have this problem, as it systematically explores all nodes level by level.
+
+9. **When to use:** If the target is close to the source, BFS performs better because it explores all nearby nodes at the current depth level before moving on to nodes at the next depth level. On the other hand, if the target is located deep in the graph or tree, DFS might reach it faster.
+
+Remember, the choice between BFS and DFS isn't always clear-cut, and the right choice depends on the specific problem and the characteristics of the graph you're working with.
+
 ## Related Algorithms
 
 BFS is closely related to Depth-First Search (DFS), another graph traversal algorithm. While BFS explores all the vertices at the present depth before moving on to vertices at the next depth level, DFS explores as far as possible along each branch before backtracking.
