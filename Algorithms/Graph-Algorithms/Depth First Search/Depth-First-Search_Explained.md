@@ -80,6 +80,86 @@ The DFS algorithm works as follows:
   - Push all its unvisited neighbors into the stack.
 - The process is repeated until all the nodes in the graph have been visited.
 
+Sure, here is the revised article with explanations after each pseudocode:
+
+## Pseudocode
+
+### Recursive DFS
+
+The simplest way to implement DFS is recursively. Starting from a given node, we mark it as visited and then recursively visit all its unvisited neighbors. Here's the pseudocode:
+
+```pseudocode
+procedure RecursiveDFS(graph, currentNode) is
+    label currentNode as visited
+    for all directed edges from currentNode to neighborNode in graph.adjacentEdges(currentNode) do
+        if vertex neighborNode is not labeled as visited then
+            recursively call RecursiveDFS(graph, neighborNode)
+```
+
+Here's what the pseudocode does:
+
+1. It starts with a `graph` and a `currentNode`.
+2. It labels `currentNode` as visited.
+3. It then goes through all the nodes `neighborNode` that are directed from `currentNode`.
+4. If a node `neighborNode` is not labeled as visited, it recursively calls the `RecursiveDFS` procedure on `neighborNode`.
+
+### Non-Recursive DFS
+
+While the recursive implementation is straightforward, it can lead to a stack overflow for large graphs. A non-recursive implementation can avoid this issue. Instead of making recursive calls, we use a stack to keep track of which nodes to visit next:
+
+```pseudocode
+procedure NonRecursiveDFS(graph, startNode) is
+    let nodeStack be a stack
+    nodeStack.push(startNode)
+    while nodeStack is not empty do
+        currentNode = nodeStack.pop()
+        if currentNode is not labeled as visited then
+            label currentNode as visited
+            for all edges from currentNode to neighborNode in graph.adjacentEdges(currentNode) do 
+                nodeStack.push(neighborNode)
+```
+
+Here's what the pseudocode does:
+
+1. It starts with a `graph` and a `startNode`.
+2. It creates a stack `nodeStack` and pushes the `startNode` into `nodeStack`.
+3. It enters a loop that continues until `nodeStack` is empty.
+4. In each iteration of the loop, it pops a node `currentNode` from `nodeStack`.
+5. If `currentNode` is not labeled as visited, it labels `currentNode` as visited.
+6. It then goes through all the nodes `neighborNode` that are adjacent to `currentNode`.
+7. If a node `neighborNode` is not labeled as visited, it pushes `neighborNode` into `nodeStack`.
+
+### Non-Recursive DFS with Stack of Iterators
+
+Another variation of non-recursive DFS uses a stack of iterators instead of a stack of nodes. This allows the algorithm to remember which neighbors it has already visited when it comes back to a node after visiting one of its neighbors:
+
+```pseudocode
+procedure DFSWithIterators(graph, startNode) is
+    let iteratorStack be a stack
+    label startNode as visited
+    iteratorStack.push(iterator of graph.adjacentEdges(startNode))
+    while iteratorStack is not empty do
+        if iteratorStack.peek().hasNext() then
+            nextNode = iteratorStack.peek().next()
+            if nextNode is not labeled as visited then
+                label nextNode as visited
+                iteratorStack.push(iterator of graph.adjacentEdges(nextNode))
+        else
+            iteratorStack.pop()
+```
+
+Here's what the pseudocode does:
+
+1. It starts with a `graph` and a `startNode`.
+2. It creates a stack `iteratorStack` and labels `startNode` as visited.
+3. It pushes an iterator of the list of nodes adjacent to `startNode` into `iteratorStack`.
+4. It enters a loop that continues until `iteratorStack` is empty.
+5. In each iteration of the loop, it checks if the iterator at the top of `iteratorStack` has a next node.
+6. If it does, it gets the `nextNode` and checks if `nextNode` is labeled as visited.
+7. If `nextNode` is not labeled as visited, it labels `nextNode` as visited and pushes an iterator of the list of nodes adjacent to `nextNode` into `iteratorStack`.
+8. If the iterator at the top of `iteratorStack` does not have a next node, it pops the iterator from `iteratorStack`.
+
+
 ## Code Breakdown
 
 Let's break down the provided C++ code and explain it part by part:

@@ -307,6 +307,7 @@ Despite the passing of several decades since its introduction, Kruskal's algorit
 - [CP-Algorithms - Minimum spanning tree - Kruskal's algorithm](https://cp-algorithms.com/graph/mst_kruskal.html)
 - [Simplilearn - Kruskal's Algorithm Tutorial](https://www.simplilearn.com/tutorials/data-structure-tutorial/kruskal-algorithm)
 - [Gate Vidyalay - Kruskal's Algorithm with an Example](https://www.gatevidyalay.com/kruskals-algorithm-kruskals-algorithm-example/)
+- [Wikipedia - Kruskal's algorithm](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)
 
 ### [Visualizers](#table-of-contents)
 - [Algorithm Visualizer - Kruskal's Minimum Spanning Tree](https://algorithm-visualizer.org/greedy/kruskals-minimum-spanning-tree)

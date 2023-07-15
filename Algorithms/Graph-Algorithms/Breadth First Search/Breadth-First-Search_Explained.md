@@ -108,6 +108,35 @@ The BFS algorithm is simple and elegant. It starts at a root node, explores its 
 
 The BFS algorithm is particularly useful for finding the shortest path in an unweighted graph or a graph where all edges have the same weight. It's also used in a variety of other applications, from network routing to web crawling.
 
+### Pseudocode 
+
+```
+procedure BreadthFirstSearch(graph, startNode) is
+    let nodeQueue be a queue
+    label startNode as discovered
+    nodeQueue.enqueue(startNode)
+    while nodeQueue is not empty do
+        currentNode := nodeQueue.dequeue()
+        if currentNode is the goal then
+            return currentNode
+        for all edges from currentNode to neighborNode in graph.adjacentEdges(currentNode) do
+            if neighborNode is not labeled as discovered then
+                label neighborNode as discovered
+                nodeQueue.enqueue(neighborNode)
+```
+
+Here's what the pseudocode does:
+
+1. It starts with a `graph` and a `startNode`.
+2. It creates a queue `nodeQueue` and marks the `startNode` as discovered, then enqueues the `startNode` into `nodeQueue`.
+3. It enters a loop that continues until `nodeQueue` is empty.
+4. In each iteration of the loop, it dequeues a node `currentNode` from `nodeQueue`.
+5. If `currentNode` is the goal (the node we're searching for), it returns `currentNode`.
+6. It then goes through all the nodes `neighborNode` that are adjacent to `currentNode`.
+7. If a node `neighborNode` has not been marked as discovered, it marks `neighborNode` as discovered and enqueues `neighborNode` into `nodeQueue`.
+
+This pseudocode assumes that all nodes are initially marked as not discovered and that the goal is to find a specific node. If the goal is to simply traverse the entire graph, the check for `currentNode` being the goal and the return statement can be removed.
+
 ## Code Breakdown <a name="code-breakdown"></a>
 
 The provided code is a simple implementation of the BFS algorithm in C++. It uses an adjacency matrix to represent the graph and a queue to keep track of the nodes to be explored. Here's a breakdown:
@@ -333,6 +362,7 @@ BFS is a fundamental graph traversal algorithm with a wide range of applications
 3. [JavaTPoint - BFS Algorithm](https://www.javatpoint.com/breadth-first-search-algorithm)
 4. [HackerEarth - BFS Tutorial](https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/tutorial/)
 5. [Simplilearn - BFS Algorithm Tutorial](https://www.simplilearn.com/tutorials/data-structure-tutorial/bfs-algorithm)
+6. [Wikipedia - Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
 
 ### Visualizers
 1. [Algorithm Visualizer - BFS](https://algorithm-visualizer.org/brute-force/breadth-first-search)

@@ -199,6 +199,7 @@ Prim's algorithm is a robust and intuitive method for finding the minimum spanni
 - [Simplilearn - Prim's Algorithm Tutorial](https://www.simplilearn.com/tutorials/data-structure-tutorial/prims-algorithm)
 - [Gate Vidyalay - Prim's Algorithm with an Example](https://www.gatevidyalay.com/prims-algorithm-prim-algorithm-example/)
 - [Scanftree - Prim's Algorithm](https://scanftree.com/Data_Structure/prim's-algorithm)
+- [Wikipedia - Prim's algorithm](https://en.wikipedia.org/wiki/Prim%27s_algorithm)
 
 ### [Visualizers](#table-of-contents)
 - [Algorithm Visualizer - Prim's Minimum Spanning Tree](https://algorithm-visualizer.org/greedy/prims-minimum-spanning-tree)
