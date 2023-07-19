@@ -5,15 +5,17 @@ A circular queue, often referred to as a 'Ring Buffer', is an advanced version o
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Class Definition](#class-definition)
-3. [Constructor and Destructor](#constructor-and-destructor)
-4. [Check if the Queue is Full](#is-full)
-5. [Check if the Queue is Empty](#is-empty)
-6. [Adding an Item to the Queue](#enqueue)
-7. [Removing an Item from the Queue](#dequeue)
-8. [Displaying the Queue](#display)
-9. [Main Function and Testing the Circular Queue](#main-function)
-10. [Conclusion](#conclusion)
+2. [The Concept of a Circular Queue](#the-concept-of-a-circular-queue)
+3. [Operations on a Circular Queue](#operations-on-a-circular-queue)
+4. [Understanding Circular Queue Operations through GIFs](#understanding-circular-queue-operations-through-gifs)
+5. [Implementing a Circular Queue](#implementing-a-circular-queue)
+6. [Pseudocode for Circular Queue Operations](#pseudocode-for-circular-queue-operations)
+7. [Code Breakdown](#code-breakdown)
+8. [Why is a Circular Queue Needed?](#why-is-a-circular-queue-needed)
+9. [Optimizing Circular Queue](#optimizing-circular-queue)
+10. [Related Data structures](#related-data-structures)
+11. [Applications of Circular Queue](#applications-of-circular-queue)
+11. [Useful Sites](#useful-sites)
 
 ## The Concept of a Circular Queue
 In a circular queue, the addition (enqueue) and removal (dequeue) of elements occur at the rear (end) and front of the queue, respectively. The last element points to the first, giving the queue its circular structure. This circularity helps prevent the wastage of space that can occur in a regular queue implementation using arrays, particularly when elements are frequently added and removed.
@@ -162,13 +164,13 @@ function displayQueue()
 end function
 ```
 
-# Code Breakdown
+## Code Breakdown
 
 A circular queue is a linear data structure that follows the First In First Out (FIFO) principle. The difference between a standard queue and a circular queue is that the last element points to the first element making a circular link.
 
 In this article, we're going to break down the provided C++ code that implements a circular queue.
 
-## Class Definition
+### Class Definition
 
 ```cpp
 class CircularQueue {
@@ -183,7 +185,7 @@ private:
 
 The `CircularQueue` class contains four private members: `size_`, `front_`, `rear_`, and `queue_`. `size_` keeps track of the size of the queue, `front_` and `rear_` hold the index of the front and rear items of the queue respectively, and `queue_` is a pointer to the dynamically allocated array representing the queue.
 
-## Constructor and Destructor
+### Constructor and Destructor
 
 ```cpp
 CircularQueue::CircularQueue(int size) {
@@ -200,7 +202,7 @@ CircularQueue::~CircularQueue() {
 
 The constructor `CircularQueue::CircularQueue(int size)` initializes the size of the queue and the indices of the front and rear items, and allocates memory for the queue. The destructor `CircularQueue::~CircularQueue()` releases the memory that was allocated for the queue when the object is destroyed, to prevent memory leaks.
 
-## Queue Operations
+### Queue Operations
 
 The main operations available on the queue are `IsEmpty()`, `IsFull()`, `Enqueue(int x)`, `Dequeue()`, and `Display()`.
 
@@ -265,7 +267,7 @@ void CircularQueue::Display() {
 
 The `Display()` function prints all the elements in the queue from the front to the rear.
 
-## Main Function
+### Main Function
 
 ```cpp
 int main() {
