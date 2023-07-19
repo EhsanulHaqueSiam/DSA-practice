@@ -15,7 +15,7 @@ A circular queue, often referred to as a 'Ring Buffer', is an advanced version o
 9. [Optimizing Circular Queue](#optimizing-circular-queue)
 10. [Related Data structures](#related-data-structures)
 11. [Applications of Circular Queue](#applications-of-circular-queue)
-11. [Useful Sites](#useful-sites)
+12. [Useful Sites](#useful-sites)
 
 ## The Concept of a Circular Queue
 In a circular queue, the addition (enqueue) and removal (dequeue) of elements occur at the rear (end) and front of the queue, respectively. The last element points to the first, giving the queue its circular structure. This circularity helps prevent the wastage of space that can occur in a regular queue implementation using arrays, particularly when elements are frequently added and removed.
