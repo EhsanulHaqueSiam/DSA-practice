@@ -91,7 +91,7 @@ A linked list is a list of items where one item of the list points to another it
 6. Repeat (4) and (5).
 7. The value of `nextNode` for `currentNode` will be `newNode`.
 
-...
+
 
 ### k. Creating a Doubly Linked List:
 
