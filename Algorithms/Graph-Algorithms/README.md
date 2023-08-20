@@ -1,5 +1,3 @@
-Absolutely! Let's delve deeper into the topic.
-
 # Comprehensive Introduction to Graph Theory
 
 ## **1. What is a Graph?**
